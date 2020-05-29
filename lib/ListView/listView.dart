@@ -5,15 +5,18 @@ import 'dart:convert';
 import 'temporaryUserClass.dart';
 
 class RecipeList extends StatefulWidget {
-  final String apiLink;
+  _RecipeListState createState() => _RecipeListState(
+      'http://www.json-generator.com/api/json/get/cfwZmvEBbC?indent=2');
 
-  RecipeList(this.apiLink);
-
-  _RecipeListState createState() => _RecipeListState();
+// TODO: @Tanuj: change the apiLink
 }
 
 class _RecipeListState extends State<RecipeList> {
+  final String apiLink;
+
   // apiLink --> URL of API link
+
+  _RecipeListState(this.apiLink);
 
   Future<List<TemporaryUser>> _getRecipe() async {
     // Future is a function with return type List of TemporaryUser
@@ -36,9 +39,11 @@ class _RecipeListState extends State<RecipeList> {
       recipeList.add(infoRecipe);
     }
 
-    print(recipeList.length);
+    //print(recipeList.length);
 
     return recipeList;
+
+    // TODO: @Tanuj: Check the return of recipeList
   }
 
   Widget build(BuildContext context) {
