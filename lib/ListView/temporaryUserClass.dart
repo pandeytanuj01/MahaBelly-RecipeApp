@@ -1,4 +1,6 @@
 // temporary user class to store data
+// TODO: @Tanuj: Change TemperoryUserClass with properties available in api
+
 class TemporaryUser {
   final int index;
   final String about;
