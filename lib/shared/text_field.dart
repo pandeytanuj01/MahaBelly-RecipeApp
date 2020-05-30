@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AuthTextField extends StatelessWidget {
   final String text;
   final TextInputType textInputType;
-  bool obscureText;
+  final bool obscureText;
 
   AuthTextField(
       {@required this.text,

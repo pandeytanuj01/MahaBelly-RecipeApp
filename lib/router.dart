@@ -6,17 +6,19 @@ import 'package:flutter/material.dart';
 
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
+    MaterialPageRoute materialPageRoute;
     switch (settings.name) {
       case Constants.welcomeRoute:
-        return MaterialPageRoute(builder: (_) => WelcomePage());
+        materialPageRoute = MaterialPageRoute(builder: (_) => WelcomePage());
         break;
       case Constants.authRoute:
         var data = settings.arguments as String;
-        return MaterialPageRoute(builder: (_) => AuthPage(data));
+        materialPageRoute = MaterialPageRoute(builder: (_) => AuthPage(data));
         break;
       case Constants.homeRoute:
-        return MaterialPageRoute(builder: (_) => HomePage());
+        materialPageRoute = MaterialPageRoute(builder: (_) => HomePage());
         break;
     }
+    return materialPageRoute;
   }
 }
