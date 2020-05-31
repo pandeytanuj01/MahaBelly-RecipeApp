@@ -39,7 +39,7 @@ class AuthPage extends StatelessWidget {
           child: IconButton(
             color: Colors.white,
             onPressed: () {
-              Navigator.pushNamed(context, '/home');
+              Navigator.pushReplacementNamed(context, '/home');
             },
             icon: Icon(Icons.arrow_forward),
           ),

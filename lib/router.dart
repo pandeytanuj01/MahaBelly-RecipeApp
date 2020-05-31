@@ -1,6 +1,7 @@
 import 'package:MahaBelly/Constants/constants.dart';
-import 'package:MahaBelly/view/auth.dart';
+import 'package:MahaBelly/view/auth/auth.dart';
 import 'package:MahaBelly/view/home.dart';
+import 'package:MahaBelly/view/recipeList/recipe_listpage.dart';
 import 'package:MahaBelly/view/welcome.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,8 @@ class Router {
       case Constants.homeRoute:
         materialPageRoute = MaterialPageRoute(builder: (_) => HomePage());
         break;
+      case Constants.recipeListPageRoute:
+        materialPageRoute = MaterialPageRoute(builder: (_) => RecipeListPage());
     }
     return materialPageRoute;
   }

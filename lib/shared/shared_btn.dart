@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
-class WelcomeButton extends StatelessWidget {
+class SharedButton extends StatelessWidget {
   final String btnText;
   final Color color;
   final Color fontColor;
+  final Function onPressed;
 
-  WelcomeButton({
-    @required this.btnText,
-    this.color,
-    this.fontColor,
-  });
+  SharedButton(
+      {@required this.btnText, this.color, this.fontColor, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,7 @@ class WelcomeButton extends StatelessWidget {
           style: TextStyle(color: fontColor, fontSize: 18.0),
         ),
         color: color,
-        onPressed: () => Navigator.pushNamed(context, '/auth',arguments: btnText),
+        onPressed: onPressed
       ),
     );
   }
