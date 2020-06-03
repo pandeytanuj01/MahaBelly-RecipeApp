@@ -1,3 +1,4 @@
+import 'package:MahaBelly/models/home_model.dart';
 import 'package:MahaBelly/models/user_model.dart';
 import 'package:MahaBelly/service_locator.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,6 +11,7 @@ class AuthModel extends Model {
   String _errorMessage;
   // bool _obscureText;
   UserModel _userModel = locator<UserModel>();
+  HomeModel _homeModel = locator<HomeModel>();
 
   get formData => _formData;
   get signType => _signType;

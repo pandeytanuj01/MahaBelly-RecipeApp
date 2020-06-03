@@ -19,14 +19,6 @@ abstract class BaseAuth {
 class AuthService implements BaseAuth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  Stream<User> get user {
-    return _firebaseAuth.onAuthStateChanged.map(_userFromFirebaseUSer);
-  }
-
-  User _userFromFirebaseUSer(FirebaseUser user) {
-    return user != null ? User(uid: user.uid) : null;
-  }
-
   Future<String> signIn(String email, String password) async {
     String errorMessage;
     FirebaseUser user;
@@ -65,13 +57,23 @@ class AuthService implements BaseAuth {
     return user.uid;
   }
 
-  Future<FirebaseUser> getCurrentUser() async {
-    FirebaseUser user = await _firebaseAuth.currentUser();
-    return user;
+  Future<bool> isUserLogged() async {
+    FirebaseUser firebaseUser = await getCurrentUser();
+    if (firebaseUser != null) {
+      IdTokenResult tokenResult = await firebaseUser.getIdToken(refresh: true);
+      return tokenResult.token != null;
+    } else {
+      return false;
+    }
   }
 
   Future<void> signOut() async {
     return _firebaseAuth.signOut();
+  }
+
+  @override
+  Future<FirebaseUser> getCurrentUser() {
+    return _firebaseAuth.currentUser();
   }
 
   // Future<void> sendEmailVerification() async {

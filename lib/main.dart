@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.white,
         ),
         title: "Welcome to Maha Belly",
-        initialRoute: Constants.welcomeRoute,
+        initialRoute: Constants.wrapperPage,
         onGenerateRoute: (RouteSettings settings) =>
             Router.generateRoute(settings));
   }

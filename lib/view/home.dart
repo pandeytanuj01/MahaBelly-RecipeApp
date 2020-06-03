@@ -38,7 +38,8 @@ class HomePage extends StatelessWidget {
                 color: Theme.of(context).primaryColor,
                 fontColor: Theme.of(context).accentColor,
                 onPressed: () {
-                  model.getImageFromCamera();
+                  // model.getImageFromCamera().then((value) => null);
+                  Navigator.pushReplacementNamed(context, '/recipeList');
                 }),
           ),
         );
@@ -67,74 +68,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-
-// import 'package:flutter/material.dart';
-// import 'dart:io';
-// import 'package:image_cropper/image_cropper.dart';
-
-// class ImageCapture extends StatefulWidget {
-//   @override
-//   _ImageCaptureState createState() => _ImageCaptureState();
-// }
-
-// class _ImageCaptureState extends State<ImageCapture> {
-//   File _imageFile;
-
-//   Future<void> _cropImage() async {
-//     File cropped = await ImageCropper.cropImage(
-//       sourcePath: _imageFile.path,
-//     );
-
-//     setState(() {
-//       _imageFile = cropped ?? _imageFile;
-//       // If image is not cropped then return the existing file(_imageFile)
-//     });
-//   }
-
-//   void _clear() {
-//     setState(() {
-//       _imageFile = null;
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Row(
-//       children: <Widget>[
-//         IconButton(
-//           icon: Icon(Icons.photo_camera),
-//           onPressed: () {
-//           //  _pickImage(ImageSource.camera);
-//           },
-//         ),
-//         IconButton(
-//           icon: Icon(Icons.photo_library),
-//           onPressed: () {
-//          //   _pickImage(ImageSource.gallery);
-//           },
-//         ),
-
-//         // Check Code for cropping and refresh
-//         ListView(
-//           children: <Widget>[
-// //            if(_imageFile != null)...[
-// //              Image.file(_imageFile),
-//           Row(
-//             children: <Widget>[
-//               FlatButton(
-//                 child: Icon(Icons.crop),
-//                 onPressed: _cropImage,
-//               ),
-//               FlatButton(
-//                 child: Icon(Icons.refresh),
-//                 onPressed: _clear,
-//               ),
-//             ],
-//           ),
-
-//           ],
-//         )
-//       ],
-//     );
-//   }
-// }

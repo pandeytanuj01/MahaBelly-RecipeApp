@@ -1,7 +1,7 @@
-import 'package:MahaBelly/view/recipeList/recipe_list.dart';
+import 'package:MahaBelly/view/recipeList/recipe_listview.dart';
 import 'package:flutter/material.dart';
 
-class RecipeListPage extends StatelessWidget {
+class RecipePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,7 +11,7 @@ class RecipeListPage extends StatelessWidget {
         title: Text('Recipes'),
         leading: Icon(Icons.restaurant_menu),
       ),
-      body: RecipeList(),
+      body: RecipeListView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         backgroundColor: Theme.of(context).primaryColor,
