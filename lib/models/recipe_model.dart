@@ -1,17 +1,19 @@
-import 'package:MahaBelly/models/recipe_repository.dart';
+import 'package:MahaBelly/networking/recipe_repository.dart';
 import 'package:MahaBelly/networking/recipe_response.dart';
 import 'package:MahaBelly/networking/response.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class RecipeModel extends Model {
-  ScrollController _scrollController = ScrollController();
-
   RecipeRepository _recipeRepository;
 
   ApiResponse<List<Recipe>> _recipeList;
 
   ApiResponse<List<Recipe>> get recipeList => _recipeList;
+
+  Color _color = Colors.green;
+
+  Color get color => _color;
 
   RecipeModel() {
     _recipeList = ApiResponse<List<Recipe>>();
@@ -20,7 +22,11 @@ class RecipeModel extends Model {
     print('-----------------------Repository-----------------------');
     fetchRecipeList();
   }
-  
+
+  changeColorNotifier(Color color) {
+    _color = color;
+    notifyListeners();
+  }
 
   fetchRecipeList() async {
     _recipeList = ApiResponse.loading('Fetching Recipes');

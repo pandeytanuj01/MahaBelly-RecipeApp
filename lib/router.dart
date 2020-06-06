@@ -7,6 +7,8 @@ import 'package:MahaBelly/view/welcome.dart';
 import 'package:MahaBelly/wrapper.dart';
 import 'package:flutter/material.dart';
 
+import 'networking/recipe_response.dart';
+
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     MaterialPageRoute materialPageRoute;
@@ -27,11 +29,9 @@ class Router {
         materialPageRoute = MaterialPageRoute(builder: (_) => Wrapper());
         break;
       case Constants.recipeDetailsPage:
-        var data = settings.arguments as String;
+        var data = settings.arguments as Recipe;
         materialPageRoute = MaterialPageRoute(
-          builder: (_) => RecipeDetails(
-            data: data,
-          ),
+          builder: (_) => RecipeDetails(data),
         );
     }
     return materialPageRoute;

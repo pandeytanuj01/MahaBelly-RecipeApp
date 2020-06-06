@@ -12,6 +12,7 @@ class WelcomePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Theme.of(context).accentColor,
         body: Stack(
+          fit: StackFit.expand,
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(top: 140.0),

@@ -6,18 +6,25 @@ class RecipePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).accentColor,
         automaticallyImplyLeading: false,
         centerTitle: true,
-        title: Text('Recipes'),
-        leading: Icon(Icons.restaurant_menu),
+        title: Text(
+          'Recipes',
+          style: TextStyle(color: Theme.of(context).primaryColor),
+        ),
+        leading: Icon(
+          Icons.restaurant_menu,
+          color: Theme.of(context).primaryColor,
+        ),
       ),
       body: RecipeListView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Theme.of(context).accentColor,
         child: Icon(
           Icons.filter_list,
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).primaryColor,
         ),
       ),
     );

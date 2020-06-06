@@ -9,15 +9,21 @@ class AuthModel extends Model {
   GlobalKey<FormState> _formKey;
   Map<String, String> _formData;
   String _errorMessage;
+  String _formSubmitStatus;
   // bool _obscureText;
   UserModel _userModel = locator<UserModel>();
   HomeModel _homeModel = locator<HomeModel>();
 
+  String get formSubmitStatus => _formSubmitStatus;
   get formData => _formData;
   get signType => _signType;
   get formKey => _formKey;
   get errorMessage => _errorMessage;
   // get obscureText => _obscureText;
+  setFormSubmitStatus(String formSubmitStatus) {
+    _formSubmitStatus = formSubmitStatus;
+    notifyListeners();
+  }
 
   setSignType(String signType) {
     if (_signType == signType) return;
@@ -87,8 +93,10 @@ class AuthModel extends Model {
 
   submitForm(BuildContext context, String signType) async {
     if (!_formKey.currentState.validate()) {
-      return '';
+      setErrorMessage('Enter Correct Details!!!');
+      setFormSubmitStatus('Error');
     }
+    setFormSubmitStatus('Loading');
     _formKey.currentState.save();
     try {
       if (signType == 'Sign Up') {
@@ -97,12 +105,12 @@ class AuthModel extends Model {
       } else {
         await _userModel.logIn(_formData['email'], _formData['password']);
       }
-      return 'Success';
+      setFormSubmitStatus('Success');
     } catch (e) {
       setErrorMessage(e);
       print('------------------------AUTH MODEL-----------------------' +
           _errorMessage);
-      return 'Error';
+      setFormSubmitStatus('Error');
     }
   }
 }

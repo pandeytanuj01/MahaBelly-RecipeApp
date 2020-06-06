@@ -1,9 +1,11 @@
 import 'package:MahaBelly/models/auth_model.dart';
 import 'package:MahaBelly/shared/auth_textbutton.dart';
+import 'package:MahaBelly/shared/loading.dart';
 import 'package:MahaBelly/shared/screen_size_reducers.dart';
 import 'package:MahaBelly/shared/text_field.dart';
 import 'package:MahaBelly/shared/welcome_text.dart';
 import 'package:flutter/material.dart';
+import 'package:progress_dialog/progress_dialog.dart';
 import 'package:scoped_model/scoped_model.dart';
 import '../../service_locator.dart';
 
@@ -15,14 +17,35 @@ class AuthPage extends StatelessWidget {
     'password': null,
   };
   // final bool obscureText = true;
-
+  ProgressDialog _progressDialog;
   @override
   Widget build(BuildContext context) {
+    _progressDialog = ProgressDialog(
+      context,
+      type: ProgressDialogType.Normal,
+      isDismissible: false,
+    );
     // print('------------------Auth Build Called----------------------');
     return ScopedModel<AuthModel>(
       model: locator<AuthModel>(),
       child: ScopedModelDescendant<AuthModel>(
         builder: (context, child, model) {
+          _progressDialog.style(
+              message: model.signType == 'Sign In'
+                  ? 'Logging In....'
+                  : 'Registering...',
+              borderRadius: 10.0,
+              backgroundColor: Colors.white,
+              progressWidget: Container(
+                  padding: EdgeInsets.all(8.0),
+                  child: CircularProgressIndicator()),
+              elevation: 10.0,
+              insetAnimCurve: Curves.easeInOut,
+              messageTextStyle: TextStyle(
+                  color: Colors.green,
+                  fontSize: 19.0,
+                  fontWeight: FontWeight.w600));
+
           // model.setObscureText(obscureText);
           model.setFormKey(_formKey);
           // print(model.signType);
@@ -105,14 +128,14 @@ class AuthPage extends StatelessWidget {
             child: IconButton(
               color: Colors.white,
               onPressed: () async {
-                String formSubmitStatus;
                 model.setFormKey(_formKey);
                 model.setFormData(_formData);
-                formSubmitStatus =
-                    await model.submitForm(context, model.signType);
-                if (formSubmitStatus == 'Error')
+                await _progressDialog.show();
+                await model.submitForm(context, model.signType);
+                await _progressDialog.hide();
+                if (model.formSubmitStatus == 'Error')
                   showSnackBar(context, model.errorMessage);
-                else if (formSubmitStatus == 'Success')
+                else if (model.formSubmitStatus == 'Success')
                   Navigator.pushReplacementNamed(context, '/home');
               },
               icon: Icon(Icons.arrow_forward),

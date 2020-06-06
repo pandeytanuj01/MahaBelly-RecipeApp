@@ -1,5 +1,5 @@
 import 'package:MahaBelly/networking/recipe_response.dart';
-import 'package:MahaBelly/view/recipeList/recipe_listtile.dart';
+import 'package:MahaBelly/view/recipeList/recipe_card.dart';
 import 'package:flutter/material.dart';
 
 class RecipeList extends StatelessWidget {
@@ -15,8 +15,8 @@ class RecipeList extends StatelessWidget {
       physics: BouncingScrollPhysics(),
       itemCount: list.length,
       itemBuilder: (context, index) {
-        getMoreData();
-        return RecipeListTile(
+        return RecipeCard(
+          recipe: list[index],
           title: list[index].title,
           imageURI: list[index].imageURI,
         );

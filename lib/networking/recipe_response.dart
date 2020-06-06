@@ -7,9 +7,9 @@ class RecipeResponse {
 
   RecipeResponse.fromJson(Map<String, dynamic> json) {
     if (json[SearchStatic.keyResponse] != null) {
-      results = new List<Recipe>();
+      results = List<Recipe>();
       json[SearchStatic.keyResponse].forEach((v) {
-        results.add(new Recipe.fromJson(v));
+        results.add(Recipe.fromJson(v));
       });
     }
   }
@@ -50,37 +50,44 @@ class Recipe {
     diets = json[SearchStatic.keyDiets].cast<String>();
     summary = json[SearchStatic.keySummary];
     if (json[SearchStatic.keyAnalyzedInstructions] != null) {
-      analyzedInstructions = new List<AnalyzedInstructions>();
+      analyzedInstructions = List<AnalyzedInstructions>();
       json[SearchStatic.keyAnalyzedInstructions].forEach((v) {
-        analyzedInstructions.add(new AnalyzedInstructions.fromJson(v));
+        analyzedInstructions.add(AnalyzedInstructions.fromJson(v));
+        print('------------------Instructions-----------------' + analyzedInstructions.toString());
       });
     }
   }
-} //itna time vscode :/ ek min api bhi dekhlo, abhi nai
+}
 
 class AnalyzedInstructions {
-  List<Steps> steps;
+  List<Steps> _steps;
 
-  AnalyzedInstructions({this.steps});
+  List<Steps> get steps => _steps;
+
+  AnalyzedInstructions(this._steps);
 
   AnalyzedInstructions.fromJson(Map<String, dynamic> json) {
     if (json[SearchStatic.keySteps] != null) {
-      steps = new List<Steps>();
+      _steps = List<Steps>();
       json[SearchStatic.keySteps].forEach((v) {
-        steps.add(new Steps.fromJson(v));
+        _steps.add(Steps.fromJson(v));
+        print('--------------------------Steps--------------------------' + _steps.toString());
       });
     }
   }
 }
 
 class Steps {
-  int number;
-  String step;
+  int _number;
+  String _step;
 
-  Steps({this.number, this.step});
+  int get number => _number;
+  String get step => _step;
+  Steps(this._number, this._step);
 
   Steps.fromJson(Map<String, dynamic> json) {
-    number = json[SearchStatic.keyNumber];
-    step = json[SearchStatic.keyStep];
+    _number = json[SearchStatic.keyNumber];
+    _step = json[SearchStatic.keyStep];
+    print('----------------------------------Step------------------------------' + _step);
   }
 }
