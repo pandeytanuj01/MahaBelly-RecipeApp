@@ -3,7 +3,7 @@
 You don’t have to cook fancy or complicated masterpieces, just good food from fresh ingredients. Needless to say, we love eating good food the most and we all know there is no better reward for hard work than having an appetizing meal. Don't waste your precious time in determining what to eat and subsequently accumulate ingredients. By MAHABELLY app you can get recipes in a blink of an eye and that too effortlessly.
 
 ### Table Of Contents
-    1) Problem Statement
+ - [1)Problem Statement](https://github.com/pandeyjiseeti/MahaBelly-RecipeApp#table-of-contents)
     2)Idea/ Solution
     3)constraint
     4)Built With
