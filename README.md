@@ -77,11 +77,6 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 
-![alt text](https://drive.google.com/file/d/1W3XEAG3a7NULsbAYXOWCV3CDEVgAidHe/view?usp=sharing)
-
-
-
-
 *- Our ML model couldn’t be converted to TensorFlow Lite and faced many errors. We took help from our mentor, but still we couldn’t accomplish it.
 
 
