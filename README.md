@@ -5,13 +5,13 @@ You don’t have to cook fancy or complicated masterpieces, just good food from 
 ### Table Of Contents
  - [1) Problem Statement](https://github.com/pandeyjiseeti/MahaBelly-RecipeApp#table-of-contents)
  
- - [2) idea-solution](https://github.com/pandeyjiseeti/MahaBelly-RecipeApp#idea-solution)
+ - [2) Idea-Solution](https://github.com/pandeyjiseeti/MahaBelly-RecipeApp#idea-solution)
  
- - [3) constraint](https://github.com/pandeyjiseeti/MahaBelly-RecipeApp#constraint)
+ - [3) Constraint](https://github.com/pandeyjiseeti/MahaBelly-RecipeApp#constraint)
  
- - [4) built-with](https://github.com/pandeyjiseeti/MahaBelly-RecipeApp#built-with)
+ - [4) Built-With](https://github.com/pandeyjiseeti/MahaBelly-RecipeApp#built-with)
  
- - [5) contributors](https://github.com/pandeyjiseeti/MahaBelly-RecipeApp#contributors)
+ - [5) Contributors](https://github.com/pandeyjiseeti/MahaBelly-RecipeApp#contributors)
     
 #### PROBLEM STATEMENT 
 
@@ -61,11 +61,6 @@ d) Converted our ML model to TensorFlow Lite model in the firebase ML Kit and in
    
    - [@dishankkalra23](https://github.com/dishankkalra23)
    
-   
-   
-   
-
-*- Our ML model couldn’t be converted to TensorFlow Lite and faced many errors. We took help from our mentor, but still we couldn’t accomplish it.
 
    
 ## Getting Started
@@ -80,3 +75,13 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+![alt text](https://drive.google.com/file/d/1W3XEAG3a7NULsbAYXOWCV3CDEVgAidHe/view?usp=sharing)
+
+
+
+
+*- Our ML model couldn’t be converted to TensorFlow Lite and faced many errors. We took help from our mentor, but still we couldn’t accomplish it.
+
+
